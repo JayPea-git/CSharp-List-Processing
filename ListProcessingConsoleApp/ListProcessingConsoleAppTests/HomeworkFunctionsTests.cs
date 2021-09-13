@@ -114,7 +114,7 @@ namespace ListProcessingConsoleApp.Tests
         [TestMethod()]
         public void FunctionalSetSameAgeTest()
         {
-            List<Person> testPeopleAge20 = HomeworkFunctions.SetSameAge(people, 20);
+            List<Person> testPeopleAge20 = HomeworkFunctions.FunctionalSetSameAge(people, 20);
             for (int i = 0; i < people.Count; i++)
             {
                 Assert.AreEqual(20, testPeopleAge20[i].Age);
