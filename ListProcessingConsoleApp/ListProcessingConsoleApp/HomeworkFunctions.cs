@@ -62,7 +62,9 @@ namespace ListProcessingConsoleApp
         //select/map
         public static List<Person> FunctionalSetSameAge(List<Person> list, int age)
         {
-            return (List<Person>)list.Select(p => p.Age = age);
+            //return (List<Person>)list.Select(p => p.Age = age);
+            list.ForEach(p => p.Age = age);
+            return list;
         }
 
         //Given a list of strings, make a list of objects that are initialised with that string.
@@ -79,7 +81,7 @@ namespace ListProcessingConsoleApp
         //select/map
         public static List<Person> FunctionalInitializePeopleFromStrings(List<string> strings)
         {
-            return (List<Person>)strings.Select(s => new Person { Name = s });
+            return strings.Select(s => new Person { Name = s }).ToList();
         }
 
         //Given a list of integers, make a list that is the same but only includes the even integers.
@@ -133,15 +135,20 @@ namespace ListProcessingConsoleApp
         //Now do the same but returning the original numbers.
         public static List<int> OriginalPlusThreeDivisibleByFive(List<int> list)
         {
+            /*
             return list
                 .Select(i => i + 3)
                 .Where(i => i % 5 == 0)
                 .Select(i => i - 3)
                 .ToList();
+            */
+
+            return list.Where(i => (i + 3) % 5 == 0).ToList();
         }
 
         //Given a list of objects, strip out any where 5 things are true
         //for loop
+
         //where/filter
 
     }
